@@ -23,8 +23,7 @@ class ItemsController < ApplicationController
   #end
 
   def create
-    item = Item.new(item_params)
-    item.save
+    item = Item.create(item_params)
     render json: item, status: :created
   end
 
@@ -35,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.permit(:name, :description, :price)
+    params.permit(:name, :description, :price, :user_id)
   end
 
 end
